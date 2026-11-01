@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+runs/
+data/train/
+data/val/
+*.zip
+data/
+data.zip
+.env
