@@ -1,7 +1,6 @@
 """Train the YOLOv8 ripeness classifier (run on Google Colab with a T4 GPU).
-
     pip install ultralytics
-    python training/train_ripeness.py --data data --epochs 30
+    python train_ripeness.py --data data --epochs 30 --imgsz 224
 Output: models/best.pt  (+ confusion matrix and result plots in runs/classify/ripeness/)
 """
 import argparse, shutil
@@ -14,7 +13,7 @@ ap.add_argument("--epochs", type=int, default=30)
 ap.add_argument("--imgsz", type=int, default=224)
 a = ap.parse_args()
 
-model = YOLO("yolov8n-cls.pt")   # small pretrained model (transfer learning)
+model = YOLO("yolov8n-cls.pt")   
 model.train(data=a.data, epochs=a.epochs, imgsz=a.imgsz, project="runs/classify",
             name="ripeness", exist_ok=True)
 
